@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Diffusion Calculation{% endblock %}
+{% block content %}
+    <form method="POST">
+        <h3 class="text-center my-4">Diffusion Calculation</h3>
+        <div class="form-group">
+            <label for="Xa">Xa (Fraction molaire)</label>
+            <input
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="Xa"
+                    name="Xa"
+                    placeholder="Enter fraction (0 to 1)"
+                    required>
+        </div>
+        <div class="form-group">
+            <label for="T">Temperature (T en kilven)</label>
+            <input
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="T"
+                    name="T"
+                    placeholder="Enter temperature"
+                    required>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+    </form>
+{% endblock %}

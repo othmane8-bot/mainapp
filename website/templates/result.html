@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Calculation Result{% endblock %}
+{% block content %}
+    <h3 class="text-center my-4">Calculation Result</h3>
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% else %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Xa fraction molaire</th>
+                <td>{{ result.Xa }}</td>
+            </tr>
+            <tr>
+                <th>T en en kilven</th>
+                <td>{{ result.T }}</td>
+            </tr>
+            <tr>
+                <th>ln(D<sub>AB</sub>)</th>
+                <td>{{ result.lnDab }}</td>
+            </tr>
+            <tr>
+                <th>D<sub>AB</sub></th>
+                <td>{{ result.Dab }}</td>
+            </tr>
+            {% if result.Xa == 0.25 and result.T == 313.13 %}
+            <tr>
+                <th>Error (%)</th>
+                <td>{{ result.erreur }}</td>
+            </tr>
+            {% endif %}
+        </table>
+    {% endif %}
+    <div class="text-center">
+        <a href="{{ url_for('calcul.calcul_route') }}" class="btn btn-secondary">Back</a>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class="jumbotron text-center">
+    <h1 class="display-4">calculateur coefficient de diffusion selon (Hsu and Chen, 1998)</h1>
+    <p class="lead"><h3>À propos de cette calculatrice</h3>
+<p>
+  Cette application Web vous permet de calculer le coefficient de diffusion binaire <strong>(D<sub>AB</sub>)</strong> du méthanol (A) dans l'eau (B)
+d'après la corrélation empirique proposée par <strong>Hsu and Chen (1998)</strong>. Ce modèle est spécifiquement conçu pour les mélanges binaires
+  dilués et dépend de la température et de la composition.
+</p>
+
+<p>
+ Cette corrélation est couramment appliquée en génie chimique et dans les phénomènes de transport pour prédire la vitesse de diffusion des molécules de méthanol dans l'eau, ce qui est essentiel dans les processus de séparation, la conception des réacteurs et le transfert de masse. analysis.
+</p>
+
+<p>
+  Vous pouvez choisir de :
+  <ul>
+    <li><strong>Calculer D<sub>AB</sub></strong> en fournissant à la fois la fraction molaire (Xa) et la température (T)</li>
+    <li><strong>Erreur d'estimation</strong> relative to a fixed reference temperature <strong>(313.13 K) </strong>en entrant <strong>Xa=0.25</strong></li>
+  </ul>
+</p>
+
+    <hr class="my-4">
+
+    {% if not current_user.is_authenticated %}
+    <p>
+      To access the calculator, please logged in or register.
+    </p>
+      <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+      <a class="btn btn-success btn-lg" href="/sign_up" role="button">Register</a>
+    {% else %}
+    <p>
+      You are logged in.
+    </p>
+      <a class="btn btn-primary btn-lg" href="/calcul" role="button">Access Calculator</a>
+    {% endif %}
+  </div>
+{% endblock %}
