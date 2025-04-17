@@ -22,6 +22,7 @@ def create_app():
     import os
 
     load_dotenv()
+    print(os.getenv("SECRET_KEY"))
     # App configuration
     app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
