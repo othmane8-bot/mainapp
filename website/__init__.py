@@ -37,7 +37,7 @@ def create_app():
     from .calcul import calcul
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
-    app.register_blueprint(calcul, url_prefix='/')
+    app.register_blueprint(calcul, url_prefix='/app')
 
     # Import your models
     from .models import User
